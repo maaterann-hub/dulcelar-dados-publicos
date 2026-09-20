@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "cbo": "8483-10",
+  "ocupacao": "Confeiteiro",
+  "metrica": "salario_medio_admissao",
+  "abrangencia": "Brasil",
+  "competencia": "2026-07",
+  "salario_medio_admissao_centavos": 241240,
+  "admissoes_consideradas": 2407,
+  "fonte": "Novo Caged / Ministério do Trabalho e Emprego",
+  "fonte_url": "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/acoes-e-programas/programas-projetos-acoes-obras-e-atividades/estatisticas-trabalho/microdados-rais-e-caged",
+  "metodologia": "Média dos salários mensais declarados nas admissões do CBO 8483-10 na competência mais recente disponível.",
+  "gerado_em": "2026-09-20T18:35:45.269607+00:00"
+}
