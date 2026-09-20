@@ -1,0 +1,46 @@
+name: Atualizar referência MTE
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 10 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install py7zr
+
+      - name: Buscar dados do MTE
+        run: |
+          python scripts/atualizar_mte.py
+
+      - name: Publicar atualização
+        run: |
+          git config user.name "dulcelar-bot"
+          git config user.email "dulcelar-bot@users.noreply.github.com"
+
+          git add dados/mte_confeiteiro.json
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração encontrada."
+          else
+            git commit -m "Atualiza referência MTE"
+            git push
+          fi
